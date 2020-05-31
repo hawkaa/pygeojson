@@ -1,6 +1,6 @@
-# 🗺pygeojson
+# pygeojson 🗺
 
-GeoJSON library for python with [types](https://docs.python.org/3/library/typing.html).
+GeoJSON library for Python with [types](https://docs.python.org/3/library/typing.html).
 
 The world doesn't need another
 [GeoJSON library for python](https://github.com/jazzband/geojson), but it needs
@@ -35,12 +35,9 @@ pip install pygeojson
 ```
 
 ## Usage
+
 TBD
 
 ## Data model
+
 TBA
-
-## Attributions
-
-* Thanks to [wikipedia](https://en.wikipedia.org/wiki/GeoJSON) for the sample
-  `assets/fc.geosjon` file.
