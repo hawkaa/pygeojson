@@ -13,7 +13,7 @@ poetry install
 Run the tests:
 
 ```sh
-poetry run pytest
+poetry run python -m pytest
 ```
 
 Run type/lint check:
