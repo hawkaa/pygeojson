@@ -36,6 +36,29 @@ This project uses
 to generate version numbers and changelogs.
 
 First, check out a new branch and create a new version:
+
 ```sh
-poetry run python-semantic-release-version
+poetry run semantic-release version
+```
+
+Then, create the changelog and update the `CHANGELOG.md` manually:
+
+```sh
+poetry run semantic-release changelog
+```
+
+Also, update the version number in `pyproject.toml` to the one
+created by `semantic-python`.
+
+Amend the changelog changes and new version to the commit:
+
+```sh
+git add CHANGELOG.md pyproject.toml
+git commit --amend
+```
+
+Publish to PyPi:
+
+```sh
+poetry publish
 ```
