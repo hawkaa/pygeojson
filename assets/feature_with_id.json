@@ -1,0 +1,8 @@
+{
+  "id": "i_have_a_string_id",
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [102.0, 0.5]
+  }
+}
