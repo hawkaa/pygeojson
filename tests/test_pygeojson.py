@@ -3,6 +3,9 @@ from pygeojson import (
     Point,
     LineString,
     load,
+    loads,
+    dump,
+    dumps,
     GeoJSONDecodeError,
     Feature,
     Polygon,
@@ -196,3 +199,54 @@ def test_polygon(load_json):
             [(100.0, 0.0), (101.0, 0.0), (101.0, 1.0), (100.0, 1.0), (100.0, 0.0)]
         ],
     )
+
+
+def test_loads():
+    assert (
+        loads(
+            """
+    {
+        "type": "Point",
+        "coordinates": [1.0, 2.0]
+    }"""
+        )
+        == Point((1.0, 2.0))
+    )
+
+
+def test_dumps():
+    assert (
+        dumps(Point((1.0, 2.0))) == """{"type": "Point", "coordinates": [1.0, 2.0]}"""
+    )
+
+
+@pytest.mark.parametrize(
+    "file",
+    [
+        "feature_with_extra_attributes.json",
+        "feature_with_id.json",
+        "feature_with_null_geom.json",
+        "feature_with_props.json",
+        "feature_without_geom.json",
+        "feature.json",
+        "featurecollection_with_extra_attributes.json",
+        "geometrycollection.json",
+        "linestring.json",
+        "multilinestring.json",
+        "multipoint.json",
+        "multipolygon.json",
+        "point.json",
+        "polygon.json",
+    ],
+)
+def test_read_write_read(load_json, file):
+    # If we read, dump, and read again, we should have the same results as read
+    assert loads(dumps(load_json(file))) == load_json(file)
+
+
+def test_dump(tmp_path):
+    p = Point((1.0, 2.0))
+    with open(tmp_path / "point.json", "w") as f:
+        dump(p, f)
+    with open(tmp_path / "point.json") as f:
+        assert load(f) == p

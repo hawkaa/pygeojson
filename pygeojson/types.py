@@ -113,3 +113,7 @@ class GeometryCollection:
 
 class GeoJSONDecodeError(Exception):
     pass
+
+
+class GeoJSONEncodeError(Exception):
+    pass
