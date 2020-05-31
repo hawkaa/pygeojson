@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pygeojson"
-version = "0.1.1"
+version = "0.2.0"
 description = "GeoJSON library for Python with types"
 authors = ["Håkon Åmdal <hakon@aamdal.com>"]
 maintainers = ["Håkon Åmdal <hakon@aamdal.com>"]
