@@ -60,5 +60,5 @@ git commit --amend
 Publish to PyPi:
 
 ```sh
-poetry publish
+poetry build && poetry publish
 ```
