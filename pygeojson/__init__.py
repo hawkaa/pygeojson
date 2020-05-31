@@ -2,7 +2,7 @@ from .types import *
 import json
 from . import parsers
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 
 def load(f: IO[AnyStr]) -> GeoJSON:
