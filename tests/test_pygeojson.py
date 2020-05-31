@@ -4,6 +4,7 @@ from pygeojson import (
     LineString,
     load,
     loads,
+    load_feature_collection,
     dump,
     dumps,
     GeoJSONDecodeError,
@@ -250,3 +251,16 @@ def test_dump(tmp_path):
         dump(p, f)
     with open(tmp_path / "point.json") as f:
         assert load(f) == p
+
+
+def test_loads_feature_collection():
+    # should not crash
+    with open("assets/featurecollection.json") as f:
+        load_feature_collection(f)
+
+
+def test_loads_feature_collection_invalid():
+    # should not crash
+    with open("assets/point.json") as f:
+        with pytest.raises(TypeError):
+            load_feature_collection(f)

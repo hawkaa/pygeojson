@@ -22,3 +22,17 @@ def dump(g: GeoJSON, fp: IO[str]) -> None:
 def dumps(g: GeoJSON) -> str:
     o = serializers.geojson(g)
     return json.dumps(o)
+
+
+def loads_feature_collection(s: AnyStr) -> FeatureCollection:
+    fc = loads(s)
+    if isinstance(fc, FeatureCollection):
+        return fc
+    raise TypeError("Tried to load an object that was not a FeatureCollection")
+
+
+def load_feature_collection(f: IO[str]) -> FeatureCollection:
+    fc = load(f)
+    if isinstance(fc, FeatureCollection):
+        return fc
+    raise TypeError("Tried to load an object that was not a FeatureCollection")
