@@ -4,26 +4,26 @@
 
 ## Hacking
 
-Set up the project with `pipenv`:
+Set up the project with `poetry`:
 
 ```sh
-pipenv install --dev
+poetry install
 ```
 
 Run the tests:
 
 ```sh
-pipenv run python -m pytest
+poetry run pytest
 ```
 
 Run type/lint check:
 
 ```sh
-pipenv run mypy pygeojson
+poetry run mypy pygeojson
 ```
 
 Check formatting:
 
 ```sh
-pipenv run black
+poetry run black
 ```
